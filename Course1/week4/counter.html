@@ -1,0 +1,35 @@
+<html>
+	<head>
+		<title>Image Gallery</title>
+
+		<!-- Latest compiled and minified CSS -->
+		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+
+		<!-- import own stylesheet -->
+		<link rel="stylesheet"
+			  type="text/css"
+			  href="styles.css"
+		/>
+
+		<!-- jQuery library -->
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.0/jquery.min.js"></script>
+
+
+	</head>
+
+	<body>
+		<!-- this element will display the variable. It is empty as it will be filled from javascript. --> 
+		<h1 id="number" onclick="count();"></h1>
+		
+		<script type="text/javascript">
+		var counter = 0;
+		//display initial value 0
+		$("#number").html(counter); 
+		function count(){
+			counter = counter + 1;
+			// set the h1 element (with id “number”) with the value of ‘counter' 
+			$("#number").html(counter);
+		}
+	</script>
+	</body>
+</html>

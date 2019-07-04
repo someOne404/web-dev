@@ -1,0 +1,93 @@
+<html>
+	<head>
+		<title>Image Gallery</title>
+
+		<!-- Latest compiled and minified CSS -->
+		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+
+		<!-- import own stylesheet -->
+		<link rel="stylesheet"
+			  type="text/css"
+			  href="styles.css"
+		/>
+
+		<!-- jQuery library -->
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.0/jquery.min.js"></script>
+
+
+	</head>
+	<body>
+		<a href="index.html">
+			Home
+		</a>
+		&nbsp;
+		<a href="About.html">
+			About
+		</a>
+		&nbsp;
+		<a href="contact.html">
+			Contact
+		</a>
+
+		<hr></hr>
+		<div class="container">
+			<h1>Image Gallery</h1>
+
+			<div class="row">
+				<div class="col-md-3">
+					<img class="crop-img" src="1.jpg" alt="Bona"/>
+				</div>
+				<div class="col-md-3">
+					<img class="crop-img" src="2.jpg" alt="Bona"/>
+				</div>
+				<div class="col-md-3">
+					<img class="crop-img" src="3.jpg" alt="Bona"/>
+				</div>
+				<div class="col-md-3">
+					<img class="crop-img" src="4.jpg" alt="Bona"/>
+				</div>
+			</div>
+
+			<div class="row">
+				<div class="col-md-3">
+					<img class="crop-img" src="5.jpg" alt="Irene"/>
+				</div>
+				<div class="col-md-3">
+					<img class="crop-img" src="6.jpg" alt="Irene"/>
+				</div>
+				<div class="col-md-3">
+					<img class="crop-img" src="7.jpg" alt="Irene"/>
+				</div>
+				<div class="col-md-3">
+					<img class="crop-img" src="8.jpg" alt="Irene"/>
+				</div>
+			</div>
+			<!--
+				this is the large image which is
+				on a row of its own. 
+				I will change it source in the 
+				javascript
+			-->
+			<div class="row">
+			<div class="col-md-12">
+				<img id="bigImage" 
+				  class="large-img" 
+				  src="1.jpg" 
+				  alt="Bona"/> 
+			</div>
+		</div>
+		</div>
+		<script>
+		// when we click on the thumbnail
+		// we set the src attribute of the 
+		// big image to be the same as the 
+		// src of the image we have clicked on
+		// ("this"). This loads the same
+		// image file into the big image
+		$(".crop-img").click(function(){
+			$("#bigImage").attr('src', 
+				$(this).attr('src'));
+		});
+	</script>
+	</body>
+</html>

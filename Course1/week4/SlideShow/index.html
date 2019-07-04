@@ -1,0 +1,141 @@
+<html>
+	<head>
+		<title>Image Gallery</title>
+
+		<!-- Latest compiled and minified CSS -->
+		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+
+		<!-- import own stylesheet -->
+		<link rel="stylesheet"
+			  type="text/css"
+			  href="styles.css"
+		/>
+
+		<!-- jQuery library -->
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.0/jquery.min.js"></script>
+
+
+	</head>
+	<body>
+		<a href="index.html">
+			Home
+		</a>
+		&nbsp;
+		<a href="About.html">
+			About
+		</a>
+		&nbsp;
+		<a href="contact.html">
+			Contact
+		</a>
+
+		<hr></hr>
+		<div class="container">
+			<h1>Image Gallery</h1>
+
+			<div class="row">
+				<div class="col-md-3">
+					<img id="image1" class="crop-img" src="1.jpg" alt="Bona"/>
+				</div>
+				<div class="col-md-3">
+					<img id="image2" class="crop-img" src="2.jpg" alt="Bona"/>
+				</div>
+				<div class="col-md-3">
+					<img id="image3" class="crop-img" src="3.jpg" alt="Bona"/>
+				</div>
+				<div class="col-md-3">
+					<img id="image4" class="crop-img" src="4.jpg" alt="Bona"/>
+				</div>
+			</div>
+
+			<div class="row">
+				<div class="col-md-3">
+					<img id="image5" class="crop-img" src="5.jpg" alt="Irene"/>
+				</div>
+				<div class="col-md-3">
+					<img id="image6" class="crop-img" src="6.jpg" alt="Irene"/>
+				</div>
+				<div class="col-md-3">
+					<img id="image7" class="crop-img" src="7.jpg" alt="Irene"/>
+				</div>
+				<div class="col-md-3">
+					<img id="image8" class="crop-img" src="8.jpg" alt="Irene"/>
+				</div>
+			</div>
+			<!--
+				this is the large image which is
+				on a row of its own. 
+				I will change it source in the 
+				javascript
+			-->
+			<div class="row">
+				<div class="col-md-1">
+					<button id ="backward">&lt;</button>
+				</div>
+				<div class="col-md-10">
+					<center><img id="bigImage" 
+					  class="large-img" 
+					  src="1.jpg" 
+					  alt="Bona"/></center> 
+				</div>
+				<div class="col-md-1">
+					<button id ="forward">&gt;</button>
+				</div>
+			</div>
+		</div>
+		</div>
+
+		<script>
+			// whether the slideshow is paused or not
+			var paused = false;
+
+			$(".crop-img").click(function(){
+				$("#bigImage").attr('src', 
+					$(this).attr('src'));
+			});
+
+			var counter = 1;
+			// virtually click on the current image to load it into the big image
+			$("#image"+counter).click();
+
+			$("#forward").click(function (){ 
+				  counter = counter + 1; 
+				  if (counter > 8){
+				  	counter = 1;
+				  }
+
+				  $("#image"+counter).click();
+			});
+
+			$("#backward").click(function (){ 
+				  counter = counter - 1; 
+
+				  if (counter < 1){
+				  	counter = 8;
+				  }
+
+				  $("#image"+counter).click();
+			});
+
+			// when you click the big image 
+			// toggle pausing. Set paused to 
+			// the opposite, i.e. if it is paused
+			// set it to not paused, if it is 
+			// not paused set it to paused
+			$("#bigImage").click(function (){
+				paused = !paused;
+			});
+
+			// set interval makes it move 
+			// forward every 3 seconds
+			setInterval(function (){
+				// first check if it is paused
+				if(!paused){
+					// virtual click the forward
+					// button
+					$("#forward").click();
+				};
+			}, 3000);
+		</script>
+	</body>
+</html>
